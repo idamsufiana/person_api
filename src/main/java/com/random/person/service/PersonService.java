@@ -30,7 +30,7 @@ public class PersonService {
             Response<RandomUserResponse> response = randomUserApi.getRandomUser().execute();
 
             if(!response.isSuccessful() || response.body() == null) {
-                throw new ExternalApiException ("RandomUser api failed " + response.code());
+                throw new ExternalApiException ("RandomUser api failed with Status " + response.code() +" "+ response.message());
             }
 
             return  response.body();

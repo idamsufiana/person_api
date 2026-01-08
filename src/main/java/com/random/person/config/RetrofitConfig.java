@@ -17,7 +17,11 @@ import java.util.concurrent.TimeUnit;
 public class RetrofitConfig {
 
     @Autowired
-    Environment env;
+    private final Environment env;
+
+    public RetrofitConfig(Environment env) {
+        this.env = env;
+    }
 
     @Bean
     public RandomUserApi randomUserApi(){
