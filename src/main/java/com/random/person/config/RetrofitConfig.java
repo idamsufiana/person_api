@@ -16,21 +16,25 @@ import java.util.concurrent.TimeUnit;
 @Configuration
 public class RetrofitConfig {
 
-    @Autowired
-    private final Environment env;
+   @Value("${url.random.user}")
+   private String baseUrl;
 
-    public RetrofitConfig(Environment env) {
-        this.env = env;
-    }
+    @Value("${http.client.connect-timeout}")
+    private Long connectTimeout;
+
+    @Value("${http.client.read-timeout}")
+    private Long readTImeout;
+
+    @Value("${http.client.retry-on-failure}")
+    private Boolean retry;
 
     @Bean
     public RandomUserApi randomUserApi(){
-        String baseUrl = env.getProperty("url.random.user");
 
         OkHttpClient client = new OkHttpClient.Builder()
-                .connectTimeout(10, TimeUnit.SECONDS)
-                .readTimeout(15, TimeUnit.SECONDS)
-                .retryOnConnectionFailure(true)
+                .connectTimeout(connectTimeout, TimeUnit.SECONDS)
+                .readTimeout(readTImeout, TimeUnit.SECONDS)
+                .retryOnConnectionFailure(retry)
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
