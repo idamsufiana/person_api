@@ -47,7 +47,7 @@ public class PersonServiceTest {
         name.setLast("sufiana");
         name.setTitle("Ms");
         RandomUserResponse.Picture picture = new RandomUserResponse.Picture();
-        picture.setLarge("");
+        picture.setLarge("https://randomuser.me/api/portraits/women/5.jpg");
 
         RandomUserResponse.Location location = new RandomUserResponse.Location();
         location.setCity("Jakarta");

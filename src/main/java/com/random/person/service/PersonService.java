@@ -66,10 +66,15 @@ public class PersonService {
         if (result== null || result.getLocation() == null){
             return "-";
         }
-        String street = result.getLocation().getStreet() != null ? result.getLocation().getStreet().toString() : "";
+        RandomUserResponse.Street street = result.getLocation().getStreet();
+        String streetFinal = street != null
+                ? String.format("%s %s",
+                safe(street.getName()),
+                safe(String.valueOf(street.getNumber())))
+                : "";
         String city = safe(result.getLocation().getCity());
         return String.format("%s %s",
-                street,
+                streetFinal,
                 city).trim();
     }
 
