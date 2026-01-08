@@ -57,15 +57,25 @@ public class PersonService {
 
     private String buildFullName(RandomUserResponse.Result result){
         return String.format("%s %s %s",
-                result.getName().getTitle(),
-                result.getName().getFirst(),
-                result.getName().getLast());
+                safe(result.getName().getTitle()),
+                safe(result.getName().getFirst()),
+                safe(result.getName().getLast()));
     }
 
     private String buildAddress(RandomUserResponse.Result result){
+        if (result== null || result.getLocation() == null){
+            return "-";
+        }
+        String street = result.getLocation().getStreet() != null ? result.getLocation().getStreet().toString() : "";
+        String city = safe(result.getLocation().getCity());
+        String state = safe(result.getLocation().getState());
         return String.format("%s %s %s",
-                result.getLocation().getStreet(),
-                result.getLocation().getCity(),
-                result.getLocation().getState());
+                street,
+                city,
+                state).trim();
+    }
+
+    private String safe(String value){
+        return value == null ? "" : value;
     }
 }
