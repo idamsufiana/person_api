@@ -51,9 +51,8 @@ public class PersonServiceTest {
 
         RandomUserResponse.Location location = new RandomUserResponse.Location();
         location.setCity("Jakarta");
-        location.setState("");
         location.setStreet(new RandomUserResponse.Street());
-        location.setPostcode(1234);
+        location.setPostcode("1234");
         RandomUserResponse.Result result = new RandomUserResponse.Result();
         result.setName(name);
         result.setLocation(location);

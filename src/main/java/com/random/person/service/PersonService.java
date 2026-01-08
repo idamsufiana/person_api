@@ -68,11 +68,9 @@ public class PersonService {
         }
         String street = result.getLocation().getStreet() != null ? result.getLocation().getStreet().toString() : "";
         String city = safe(result.getLocation().getCity());
-        String state = safe(result.getLocation().getState());
         return String.format("%s %s %s",
                 street,
-                city,
-                state).trim();
+                city).trim();
     }
 
     private String safe(String value){
