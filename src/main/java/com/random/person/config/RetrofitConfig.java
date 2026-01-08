@@ -19,13 +19,13 @@ public class RetrofitConfig {
    @Value("${url.random.user}")
    private String baseUrl;
 
-    @Value("${http.client.connect-timeout}")
+    @Value("${client.connect-timeout}")
     private Long connectTimeout;
 
-    @Value("${http.client.read-timeout}")
+    @Value("${client.read-timeout}")
     private Long readTImeout;
 
-    @Value("${http.client.retry-on-failure}")
+    @Value("${client.retry-on-failure}")
     private Boolean retry;
 
     @Bean
