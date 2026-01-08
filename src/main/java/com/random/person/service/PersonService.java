@@ -70,7 +70,7 @@ public class PersonService {
         String streetFinal = street != null
                 ? String.format("%s %s",
                 safe(street.getName()),
-                safe(String.valueOf(street.getNumber())))
+                safe(street.getNumber()))
                 : "";
         String city = safe(result.getLocation().getCity());
         return String.format("%s %s",
@@ -78,7 +78,7 @@ public class PersonService {
                 city).trim();
     }
 
-    private String safe(String value){
-        return value == null ? "" : value;
+    private String safe(Object value){
+        return value == null ? "" : value.toString();
     }
 }
