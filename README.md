@@ -14,6 +14,7 @@ mvn spring-boot:run
 curl http://localhost:8080/api/person
 
 {
+
   "gender": "female",
   
   "fullname": "mrs becky campbell",
