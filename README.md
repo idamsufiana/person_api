@@ -15,7 +15,11 @@ curl http://localhost:8080/api/person
 
 {
   "gender": "female",
+  
   "fullname": "mrs becky campbell",
+  
   "address": "1135 w sherman dr greeley",
+  
   "picture": "https://randomuser.me/api/portraits/women/45.jpg"
+  
 }
