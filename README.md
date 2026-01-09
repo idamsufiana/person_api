@@ -4,9 +4,13 @@ person api
 step running this application
 
 git clone https://github.com/idamsufiana/person_api.git
+
 cd person_api
+
 mvn clean install
+
 mvn spring-boot:run
+
 curl http://localhost:8080/api/person
 
 {
